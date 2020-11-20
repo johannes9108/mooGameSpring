@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Playing</title>
+</head>
+<body th:object="${model}">
+
+	<form th:action="@{/moo/playing}" action="#" method="POST"   >
+		<p th:if="*{message}" th:text="*{message}">asdasd</p>
+		<label>Enter your a guess</label> 
+		<input type="number" th:field="*{guess}" /> 
+		<input type="submit"
+			value="Guess!">
+	</form>
+	
+	<table>
+	<tr th:each="guess : ${model.getResponseHistory}">
+		<td><strong>#</strong></td><td th:text="${guess.guesses}"></td>
+		<td><strong>Guess:</strong></td><td th:text="${guess.guess}"></td> 
+		<td><strong>Progress:</strong></td><td th:text="${guess.answer}"></td> 
+	</tr>
+	</table>
+	
+
+</body>
+</html>
