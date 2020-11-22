@@ -5,7 +5,11 @@
 <title>Welcome to Moo game</title>
 </head>
 <body>
-	<form action="#" th:object="${model}" method="POST" th:action="@{/moo/play}">
+	<h1>Moo Game</h1>
+	
+	<p th:if="${errorMessage}" th:text="${errorMessage}">Error Message</p>
+	
+	<form action="#" method="POST" th:object="${model}" th:action="@{/moo/play}">
 		<label >Enter name:</label>
 		<input type="text" th:field="*{name}"/>
 		<input type="submit" value="Start Game"/>

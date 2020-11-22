@@ -5,17 +5,34 @@
 <title>Welcome to Moo game</title>
 
 <style>
-	.tableStyle{
-		border-bottom: solid 1px black;
-	
-	}
-
-
+.tableStyle {
+	border-bottom: solid 1px black;
+}
 </style>
 
 </head>
-<body >
-	<h2 >Game completed!</h2>
+<body>
+	<h2>Game completed!</h2>
+
+	<table class="tableStyle">
+		<tr th:each="entry,metaData : *{topTenList}">
+			<td><strong>#</strong></td>
+			<td th:text="${metaData.count}"></td>
+			<td><strong>Name:</strong></td>
+			<td th:text="${entry.name}"></td>
+			<td><strong>Average:</strong></td>
+			<td th:text="${entry.average}"></td>
+		</tr>
+	</table>
+
+
+	<a th:href="@{/moo/play}">New Game</a>
+
+
+
+</body>
+</html>
+
 <!-- 	<table class="tableStyle"> -->
 <!-- 	<tr th:each="guess : *{responseHistory}"> -->
 <!-- 		<td><strong>#</strong></td><td th:text="${guess.guesses}"></td> -->
@@ -23,21 +40,8 @@
 <!-- 		<td><strong>Progress:</strong></td><td th:text="${guess.answer}"></td>  -->
 <!-- 	</tr> -->
 <!-- 	</table> -->
-	
-	<table class="tableStyle">
-	<tr th:each="entry,metaData : *{model}">
-		<td><strong>#</strong></td><td th:text="${metaData.count}"></td>
-		<td><strong>Name:</strong></td><td th:text="${entry.name}"></td> 
-		<td><strong>Average:</strong></td><td th:text="${entry.average}"></td> 
-	</tr>
-	</table>
-
-
 <!-- 	<form action="#" th:object="${model}" method="POST" th:action="@{/moo/play}"> -->
 <!-- 		<label >Enter name:</label> -->
 <!-- 		<input type="text" th:field="*{name}"/> -->
 <!-- 		<input type="submit" value="Start Game"/> -->
 <!-- 	</form> -->
-
-</body>
-</html>

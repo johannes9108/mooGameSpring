@@ -17,8 +17,11 @@ public class GameModelObject {
 	
 	private String guess;
 	
-	private String message;
-	
+	@Override
+	public String toString() {
+		return "GameModelObject [name=" + name + ", guess=" + guess + ", responseHistory=" + responseHistory
+				+ ", noOfGuesses=" + noOfGuesses + "]";
+	}
 	private List<ResponseObject> responseHistory = new ArrayList<ResponseObject>();
 	
 	private int noOfGuesses;
@@ -29,12 +32,6 @@ public class GameModelObject {
 	}
 	public void setNoOfGuesses(int noOfGuesses) {
 		this.noOfGuesses = noOfGuesses;
-	}
-	public String getMessage() {
-		return message;
-	}
-	public void setMessage(String message) {
-		this.message = message;
 	}
 	public String getGuess() {
 		return guess;
@@ -53,11 +50,6 @@ public class GameModelObject {
 	}
 	public void setResponseHistory(List<ResponseObject> responseHistory) {
 		this.responseHistory = responseHistory;
-	}
-	@Override
-	public String toString() {
-		return "GameModelObject [name=" + name + ", guess=" + guess + ", message=" + message + ", noOfGuesses="
-				+ noOfGuesses + "]";
 	}
 
 //	private StringBuilder builder = new StringBuilder();
